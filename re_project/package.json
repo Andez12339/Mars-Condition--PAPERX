@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
+    // RENDER FIX: Updated to use 'sh -c' to ensure the $PORT environment variable is correctly expanded 
+    // and passed to vite preview when running on the Linux-based Render server.
+    "preview": "sh -c \"vite preview --host 0.0.0.0 --port $PORT\"", 
     "start": "npm run preview",
     "typecheck": "tsc --noEmit -p tsconfig.app.json"
   },
